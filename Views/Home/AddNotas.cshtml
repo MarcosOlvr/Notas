@@ -1,0 +1,36 @@
+﻿@model Aluno
+
+@{
+    ViewData["Title"] = $"{@Model.Nome} {@Model.Sobrenome}";
+}
+
+<div class="container p-3">
+    <h1 class="h3 mb-2 text-primary">Adicionar notas</h1>
+    <p class="mb-4 text-light">Este local serve para adicionar notas ao seu aluno!</p>
+
+    <h2 class="text-light text-center">Aluno: @Model.Nome @Model.Sobrenome</h2>
+
+    <div class="row mt-3 d-flex justify-content-between">
+        <div class="col-md-auto mt-3 p-3 border rounded border-2 border-primary text-center">
+            <img src="~/images/primeiro.png" width="150" height="150"/>
+            <h4 class="text-light mt-2">1º Bimestre</h4>
+            <a class="btn btn-primary mt-2" asp-controller="Notas" asp-action="AddPrimeiroBi" asp-route-id="@Model.Id">Adicionar nota</a>
+        </div>
+        <div class="col-md-auto mt-3 p-3 border rounded border-2 border-primary text-center">
+            <img src="~/images/segundo.png" width="150" height="150"/>
+            <h4 class="text-light mt-2">2º Bimestre</h4>
+            <a class="btn btn-primary mt-2">Adicionar nota</a>
+        </div>
+        <div class="col-md-auto mt-3 p-3 border rounded border-2 border-primary text-center">
+            <img src="~/images/terceiro.png" width="150" height="150"/>
+            <h4 class="text-light mt-2">3º Bimestre</h4>
+            <a class="btn btn-primary mt-2">Adicionar nota</a>
+        </div>
+        <div class="col-md-auto mt-3 p-3 border rounded border-2 border-primary text-center">
+            <img src="~/images/quarto.png" width="150" height="150"/>
+            <h4 class="text-light mt-2">4º Bimestre</h4>
+            <a class="btn btn-primary mt-2">Adicionar nota</a>
+        </div>
+    </div>
+    
+</div>
