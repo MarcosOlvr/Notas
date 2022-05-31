@@ -6,6 +6,7 @@ using System.Diagnostics;
 
 namespace Notas.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ApplicationDbContext _db;
@@ -15,7 +16,6 @@ namespace Notas.Controllers
             _db = db;
         }
 
-        [Authorize]
         public IActionResult Index()
         {
             var alunos = _db.Alunos.ToList();
