@@ -1,0 +1,33 @@
+﻿<td>Língua Portuguesa</td>
+@if (Model.PrimeiroBi == null)
+{
+    <td class="text-center">-</td>
+}
+else
+{
+    <td class="text-center">@Model.PrimeiroBi.Matematica</td>
+}
+@if (Model.SegundoBi == null)
+{
+    <td class="text-center">-</td>
+}
+else
+{
+    <td class="text-center">@Model.SegundoBi.Matematica</td>
+}
+@if (Model.TerceiroBi == null)
+{
+    <td class="text-center">-</td>
+}
+else
+{
+    <td class="text-center">@Model.TerceiroBi.Matematica</td>
+}
+@if (Model.QuartoBi == null)
+{
+    <td class="text-center">-</td>
+}
+else
+{
+    <td class="text-center">@Model.QuartoBi.Matematica</td>
+}

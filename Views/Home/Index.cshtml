@@ -35,7 +35,9 @@
                                 <td class="text-center text-primary">@aluno.Id</td>
                                 <td>@aluno.Nome @aluno.Sobrenome</td>
                                 <td class="text-center">
-                                    <button class="btn btn-sm btn-success"><i class="bi bi-eye"></i>  Visualizar Notas </button>
+                                    <a class="btn btn-sm btn-success" asp-controller="Home" asp-action="VerNotas" asp-route-id="@aluno.Id">
+                                        <i class="bi bi-eye"></i>  Visualizar Notas 
+                                    </a>
                                 </td>
                                 <td class="text-center text-success">
                                     <a class="btn btn-sm btn-primary" asp-controller="Home" asp-action="AddNotas" asp-route-id="@aluno.Id">

@@ -1,0 +1,33 @@
+﻿<td>Ciências</td>
+@if (Model.PrimeiroBi == null)
+{
+    <td class="text-center">-</td>
+}
+else
+{
+    <td class="text-center">@Model.PrimeiroBi.Ciencias</td>
+}
+@if (Model.SegundoBi == null)
+{
+    <td class="text-center">-</td>
+}
+else
+{
+    <td class="text-center">@Model.SegundoBi.Ciencias</td>
+}
+@if (Model.TerceiroBi == null)
+{
+    <td class="text-center">-</td>
+}
+else
+{
+    <td class="text-center">@Model.TerceiroBi.Ciencias</td>
+}
+@if (Model.QuartoBi == null)
+{
+    <td class="text-center">-</td>
+}
+else
+{
+    <td class="text-center">@Model.QuartoBi.Ciencias</td>
+}

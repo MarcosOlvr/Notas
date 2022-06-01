@@ -1,0 +1,42 @@
+﻿@model VerNotasVM
+
+@{
+    ViewData["Title"] = $"{@Model.Aluno.Nome} {@Model.Aluno.Sobrenome}";
+}
+
+<div class="container p-3">
+    <h1 class="h3 mb-2 text-primary">Notas do aluno</h1>
+    <p class="mb-4 text-light">Aqui você visualiza as notas de seus aluno, também pode editar e remover se você desejar!</p>
+
+    <h2 class="text-light text-center">Aluno: @Model.Aluno.Nome @Model.Aluno.Sobrenome</h2>
+    <div class="table-responsive pt-3">
+        <table class="table table-bordered border-secondary text-light">
+            <thead>
+                <tr>
+                    <th class="col-4">Disciplinas</th>
+                    <th class="text-center">1º BIM</th>
+                    <th class="text-center">2º BIM</th>
+                    <th class="text-center">3º BIM</th>
+                    <th class="text-center">4º BIM</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <partial name="_PortuguesPartial" />
+                </tr>
+                <tr>
+                    <partial name="_MatematicaPartial" />
+                </tr>
+                <tr>
+                    <partial name="_HistoriaPartial" />
+                </tr>
+                <tr>
+                    <partial name="_GeografiaPartial" />
+                </tr>
+                <tr>
+                    <partial name="_CienciasPartial" />
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
