@@ -1,0 +1,33 @@
+﻿<td><strong>Faltas</strong></td>
+@if (Model.PrimeiroBi == null)
+{
+    <td class="text-center">-</td>
+}
+else
+{
+    <td class="text-center">@Model.PrimeiroBi.Faltas</td>
+}
+@if (Model.SegundoBi == null)
+{
+    <td class="text-center">-</td>
+}
+else
+{
+    <td class="text-center">@Model.SegundoBi.Faltas</td>
+}
+@if (Model.TerceiroBi == null)
+{
+    <td class="text-center">-</td>
+}
+else
+{
+    <td class="text-center">@Model.TerceiroBi.Faltas</td>
+}
+@if (Model.QuartoBi == null)
+{
+    <td class="text-center">-</td>
+}
+else
+{
+    <td class="text-center">@Model.QuartoBi.Faltas</td>
+}

@@ -10,6 +10,7 @@ namespace Notas.ViewModels
         public int Historia { get; set; }
         public int Geografia { get; set; }
         public int Ciencias { get; set; }
+        public int Faltas { get; set; }
         public bool TemNotaPrimeiroBi { get; set; } = false;
         public bool TemNotaSegundoBi { get; set; } = false;
         public bool TemNotaTerceiroBi { get; set; } = false;

@@ -8,6 +8,7 @@
         public int Historia { get; set; }
         public int Geografia { get; set; }
         public int Ciencias { get; set; }
+        public int Faltas { get; set; }
         public int AlunoId { get; set; }
     }
 }

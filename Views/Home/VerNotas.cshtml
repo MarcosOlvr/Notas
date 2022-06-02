@@ -5,6 +5,10 @@
 }
 
 <div class="container p-3">
+    <a asp-controller="Home" asp-action="Index">
+        <i class="bi bi-arrow-left-circle text-primary" style="font-size: 2rem;"></i>
+    </a>
+
     <h1 class="h3 mb-2 text-primary">Notas do aluno</h1>
     <p class="mb-4 text-light">Aqui você visualiza as notas de seus aluno, também pode editar e remover se você desejar!</p>
 
@@ -35,6 +39,9 @@
                 </tr>
                 <tr>
                     <partial name="_CienciasPartial" />
+                </tr>
+                <tr class="table-active text-light">
+                    <partial name="_FaltasPartial" />
                 </tr>
             </tbody>
         </table>

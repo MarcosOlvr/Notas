@@ -62,6 +62,7 @@ namespace Notas.Controllers
             primeiroBi.Historia = obj.Historia;
             primeiroBi.Geografia = obj.Geografia;
             primeiroBi.Ciencias = obj.Ciencias;
+            primeiroBi.Faltas = obj.Faltas;
             primeiroBi.AlunoId = aluno.Id;
 
             _db.PrimeiroBi.Add(primeiroBi);
@@ -116,6 +117,7 @@ namespace Notas.Controllers
             segundoBi.Historia = obj.Historia;
             segundoBi.Geografia = obj.Geografia;
             segundoBi.Ciencias = obj.Ciencias;
+            segundoBi.Faltas = obj.Faltas;
             segundoBi.AlunoId = aluno.Id;
 
             _db.SegundoBi.Add(segundoBi);
@@ -170,6 +172,7 @@ namespace Notas.Controllers
             terceiroBi.Historia = obj.Historia;
             terceiroBi.Geografia = obj.Geografia;
             terceiroBi.Ciencias = obj.Ciencias;
+            terceiroBi.Faltas = obj.Faltas;
             terceiroBi.AlunoId = aluno.Id;
 
             _db.TerceiroBi.Add(terceiroBi);
@@ -224,6 +227,7 @@ namespace Notas.Controllers
             quartoBi.Historia = obj.Historia;
             quartoBi.Geografia = obj.Geografia;
             quartoBi.Ciencias = obj.Ciencias;
+            quartoBi.Faltas = obj.Faltas;
             quartoBi.AlunoId = aluno.Id;
 
             _db.QuartoBi.Add(quartoBi);
