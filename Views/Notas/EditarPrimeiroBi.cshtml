@@ -1,0 +1,49 @@
+﻿@model PrimeiroBiVM
+
+@{
+    ViewData["Title"] = $"{@Model.Aluno.Nome} {@Model.Aluno.Sobrenome}";
+}
+
+<div class="container p-3">
+    <a asp-controller="Notas" asp-action="EditarNotas" asp-route-id="@Model.Aluno.Id">
+        <i class="bi bi-arrow-left-circle text-primary" style="font-size: 2rem;"></i>
+    </a>
+
+    <h1 class="h3 mb-2 text-primary">Primeiro Bimestre</h1>
+
+    <h2 class="text-light text-center">Aluno: @Model.Aluno.Nome @Model.Aluno.Sobrenome</h2>
+
+    <div class="row mt-3 d-flex justify-content-between">
+        <form method="post">
+            <input asp-for="@Model.PrimeiroBi.AlunoId" hidden/>
+            <input asp-for="@Model.PrimeiroBi.Id" hidden/>
+            <div class="col-md-auto mt-3 p-3 border rounded border-2 border-primary">
+                <h4 class="text-primary text-center">Português</h4>
+                <input asp-for="PrimeiroBi.Portugues" class="form-control" min="0" max="100"/>
+            </div>
+            <div class="col-md-auto mt-3 p-3 border rounded border-2 border-primary">
+                <h4 class="text-primary text-center">Matemática</h4>
+                <input asp-for="PrimeiroBi.Matematica" class="form-control" min="0" max="100"/>
+            </div>
+            <div class="col-md-auto mt-3 p-3 border rounded border-2 border-primary">
+                <h4 class="text-primary text-center">História</h4>
+                <input asp-for="PrimeiroBi.Historia" class="form-control" min="0" max="100"/>
+            </div>
+            <div class="col-md-auto mt-3 p-3 border rounded border-2 border-primary">
+                <h4 class="text-primary text-center">Geografia</h4>
+                <input asp-for="PrimeiroBi.Geografia" class="form-control" min="0" max="100"/>
+            </div>
+            <div class="col-md-auto mt-3 p-3 border rounded border-2 border-primary">
+                <h4 class="text-primary text-center">Ciências</h4>
+                <input asp-for="PrimeiroBi.Ciencias" class="form-control" min="0" max="100"/>
+            </div>
+            <div class="col-md-auto mt-3 p-3 border rounded border-2 border-primary">
+                <h4 class="text-primary text-center">Total de Faltas no Bimestre</h4>
+                <input asp-for="PrimeiroBi.Faltas" class="form-control" min="0" max="100"/>
+            </div>
+            <div class="mt-3">
+                <button type="submit" class="btn btn-success form-control p-3">Enviar</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -13,6 +13,9 @@
     <p class="mb-4 text-light">Aqui você visualiza as notas de seus aluno, também pode editar e remover se você desejar!</p>
 
     <h2 class="text-light text-center">Aluno: @Model.Aluno.Nome @Model.Aluno.Sobrenome</h2>
+    <div class="d-flex justify-content-end">
+        <a class="btn btn-primary" asp-controller="Notas" asp-action="EditarNotas" asp-route-id="@Model.Aluno.Id">Editar notas <i class="bi bi-pencil-square"></i></a>
+    </div>
     <div class="table-responsive pt-3">
         <table class="table table-bordered border-secondary text-light">
             <thead>

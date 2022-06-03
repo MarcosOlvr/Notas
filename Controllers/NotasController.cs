@@ -37,6 +37,7 @@ namespace Notas.Controllers
         
         [HttpPost]
         [Route("Notas/AddPrimeiroBi/{id}")]
+        [ValidateAntiForgeryToken]
         public IActionResult AddPrimeiroBiPost(AddNotasVM obj)
         {
             ModelState.Remove("Aluno");
@@ -70,7 +71,7 @@ namespace Notas.Controllers
 
             return RedirectToRoute(new { controller = "Home", action = "AddNotas", id = aluno.Id });
         }
-        
+
         [HttpGet]
         public IActionResult AddSegundoBi(int id)
         {
@@ -92,6 +93,7 @@ namespace Notas.Controllers
         
         [HttpPost]
         [Route("Notas/AddSegundoBi/{id}")]
+        [ValidateAntiForgeryToken]
         public IActionResult AddSegundoBiPost(AddNotasVM obj)
         {
             ModelState.Remove("Aluno");
@@ -147,6 +149,7 @@ namespace Notas.Controllers
         
         [HttpPost]
         [Route("Notas/AddTerceiroBi/{id}")]
+        [ValidateAntiForgeryToken]
         public IActionResult AddTerceiroBiPost(AddNotasVM obj)
         {
             ModelState.Remove("Aluno");
@@ -202,6 +205,7 @@ namespace Notas.Controllers
         
         [HttpPost]
         [Route("Notas/AddQuartoBi/{id}")]
+        [ValidateAntiForgeryToken]
         public IActionResult AddQuartoBiPost(AddNotasVM obj)
         {
             ModelState.Remove("Aluno");
@@ -234,6 +238,139 @@ namespace Notas.Controllers
             _db.SaveChanges();
 
             return RedirectToRoute(new { controller = "Home", action = "AddNotas", id = aluno.Id });
+        }
+
+        [HttpGet]
+        public IActionResult EditarNotas(int id)
+        {
+            var aluno = _db.Alunos.Find(id);
+            if (aluno == null)
+                return NotFound();
+            
+            var vm = new EditarNotasVM();
+            vm.Aluno = aluno;
+
+            if (VerificarPrimeiroBi(aluno.Id) == true)
+                vm.TemNotaPrimeiroBi = true;
+
+            if (VerificarSegundoBi(aluno.Id) == true)
+                vm.TemNotaSegundoBi = true;
+            
+            if (VerificarTerceiroBi(aluno.Id) == true)
+                vm.TemNotaTerceiroBi = true;
+            
+            if (VerificarQuartoBi(aluno.Id) == true)
+                vm.TemNotaQuartoBi = true;
+
+            return View(vm);
+        }
+
+        [HttpGet]
+        public IActionResult EditarPrimeiroBi(int id)
+        {
+            var aluno = _db.Alunos.Find(id);
+            if (aluno == null)
+                return NotFound();
+
+            var vm = new PrimeiroBiVM();
+            vm.Aluno = aluno;
+            vm.PrimeiroBi = _db.PrimeiroBi.FirstOrDefault(x => x.AlunoId == aluno.Id);
+            
+            return View(vm);
+        }
+
+        [HttpPost]
+        public IActionResult EditarPrimeiroBi(PrimeiroBiVM obj)
+        {
+            ModelState.Remove("Aluno");
+            if (!ModelState.IsValid)
+                return View(obj);
+
+            _db.PrimeiroBi.Update(obj.PrimeiroBi);
+            _db.SaveChanges();
+
+            return RedirectToRoute(new { controller = "Home", action = "VerNotas", id = obj.PrimeiroBi.AlunoId });
+        }
+        
+        [HttpGet]
+        public IActionResult EditarSegundoBi(int id)
+        {
+            var aluno = _db.Alunos.Find(id);
+            if (aluno == null)
+                return NotFound();
+
+            var vm = new SegundoBiVM();
+            vm.Aluno = aluno;
+            vm.SegundoBi = _db.SegundoBi.FirstOrDefault(x => x.AlunoId == aluno.Id);
+            
+            return View(vm);
+        }
+
+        [HttpPost]
+        public IActionResult EditarSegundoBi(SegundoBiVM obj)
+        {
+            ModelState.Remove("Aluno");
+            if (!ModelState.IsValid)
+                return View(obj);
+
+            _db.SegundoBi.Update(obj.SegundoBi);
+            _db.SaveChanges();
+
+            return RedirectToRoute(new { controller = "Home", action = "VerNotas", id = obj.SegundoBi.AlunoId });
+        }
+        
+        [HttpGet]
+        public IActionResult EditarTerceiroBi(int id)
+        {
+            var aluno = _db.Alunos.Find(id);
+            if (aluno == null)
+                return NotFound();
+
+            var vm = new TerceiroBiVM();
+            vm.Aluno = aluno;
+            vm.TerceiroBi = _db.TerceiroBi.FirstOrDefault(x => x.AlunoId == aluno.Id);
+            
+            return View(vm);
+        }
+
+        [HttpPost]
+        public IActionResult EditarTerceiroBi(TerceiroBiVM obj)
+        {
+            ModelState.Remove("Aluno");
+            if (!ModelState.IsValid)
+                return View(obj);
+
+            _db.TerceiroBi.Update(obj.TerceiroBi);
+            _db.SaveChanges();
+
+            return RedirectToRoute(new { controller = "Home", action = "VerNotas", id = obj.TerceiroBi.AlunoId });
+        }
+        
+        [HttpGet]
+        public IActionResult EditarQuartoBi(int id)
+        {
+            var aluno = _db.Alunos.Find(id);
+            if (aluno == null)
+                return NotFound();
+
+            var vm = new QuartoBiVM();
+            vm.Aluno = aluno;
+            vm.QuartoBi = _db.QuartoBi.FirstOrDefault(x => x.AlunoId == aluno.Id);
+            
+            return View(vm);
+        }
+
+        [HttpPost]
+        public IActionResult EditarQuartoBi(QuartoBiVM obj)
+        {
+            ModelState.Remove("Aluno");
+            if (!ModelState.IsValid)
+                return View(obj);
+
+            _db.QuartoBi.Update(obj.QuartoBi);
+            _db.SaveChanges();
+
+            return RedirectToRoute(new { controller = "Home", action = "VerNotas", id = obj.QuartoBi.AlunoId });
         }
 
         public bool VerificarPrimeiroBi(int alunoId)

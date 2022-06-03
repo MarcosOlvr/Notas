@@ -1,0 +1,76 @@
+﻿@model EditarNotasVM
+
+@{
+    ViewData["Title"] = "Editar notas";
+}
+
+<div class="container p-3">
+    <a asp-controller="Home" asp-action="VerNotas" asp-route-id="@Model.Aluno.Id">
+        <i class="bi bi-arrow-left-circle text-primary" style="font-size: 2rem;"></i>
+    </a>
+
+    <h1 class="h3 mb-2 text-primary">Editar notas</h1>
+    <p class="mb-4 text-light">Aqui você pode editar as notas de seus aluno, se você precisar.</p>
+
+    @if (@Model.TemNotaPrimeiroBi == false &&
+    @Model.TemNotaSegundoBi == false &&
+    @Model.TemNotaTerceiroBi == false &&
+    @Model.TemNotaQuartoBi == false)
+    {
+        <h2 class="text-danger text-center">O aluno @Model.Aluno.Nome @Model.Aluno.Sobrenome não tem notas cadastradas!</h2>
+    }
+    else
+    {
+    <h2 class="text-light text-center">Aluno: @Model.Aluno.Nome @Model.Aluno.Sobrenome</h2>
+    <div class="row mt-3 d-flex justify-content-around">
+        @if (@Model.TemNotaPrimeiroBi == false)
+        {
+        
+        }
+        else
+        {
+            <div class="col-md-auto mt-3 p-3 border rounded border-2 border-primary text-center">
+                <img src="~/images/primeiro.png" width="150" height="150"/>
+                <h4 class="text-light mt-2">1º Bimestre</h4>
+                <a class="btn btn-warning mt-2" asp-controller="Notas" asp-action="EditarPrimeiroBi" asp-route-id="@Model.Aluno.Id">Editar nota</a>
+            </div>
+        }
+        @if (@Model.TemNotaSegundoBi == false)
+        {
+            
+        }
+        else
+        {
+            <div class="col-md-auto mt-3 p-3 border rounded border-2 border-primary text-center">
+                <img src="~/images/segundo.png" width="150" height="150"/>
+                <h4 class="text-light mt-2">2º Bimestre</h4>
+                <a class="btn btn-warning mt-2" asp-controller="Notas" asp-action="EditarSegundoBi" asp-route-id="@Model.Aluno.Id">Editar nota</a>
+            </div>
+        }
+        @if (@Model.TemNotaTerceiroBi == false)
+        {
+            
+        }
+        else
+        {
+            <div class="col-md-auto mt-3 p-3 border rounded border-2 border-primary text-center">
+                <img src="~/images/terceiro.png" width="150" height="150"/>
+                <h4 class="text-light mt-2">3º Bimestre</h4>
+                <a class="btn btn-warning mt-2" asp-controller="Notas" asp-action="EditarTerceiroBi" asp-route-id="@Model.Aluno.Id">Editar nota</a>
+            </div>
+        }
+        @if (@Model.TemNotaQuartoBi == false)
+        {
+            
+        }
+        else
+        {
+            <div class="col-md-auto mt-3 p-3 border rounded border-2 border-primary text-center">
+                <img src="~/images/quarto.png" width="150" height="150"/>
+                <h4 class="text-light mt-2">4º Bimestre</h4>
+                <a class="btn btn-warning mt-2" asp-controller="Notas" asp-action="EditarQuartoBi" asp-route-id="@Model.Aluno.Id">Editar nota</a>
+            </div>
+        }
+        </div>
+    }
+</div>
